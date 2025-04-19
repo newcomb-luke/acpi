@@ -552,8 +552,6 @@ fn extended_interrupt_descriptor(bytes: &[u8]) -> Result<Resource, AmlError> {
 
     let number_of_interrupts = bytes[4] as usize;
 
-    assert_eq!(number_of_interrupts, 1);
-
     let irq = if number_of_interrupts == 1 {
         let irq = LittleEndian::read_u32( &bytes[5..9]);
 
